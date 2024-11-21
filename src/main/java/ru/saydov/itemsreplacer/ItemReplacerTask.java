@@ -38,9 +38,17 @@ public final class ItemReplacerTask implements RegistrableDestroyable, Runnable 
     public void run() {
         for (final Player player : plugin.getServer().getOnlinePlayers()) {
             player.getInventory().forEach(item -> {
-                if (persistentConfig.isIllegal(item.getType())) {
-                    player.getInventory().remove(item);
+                if (item == null) {
+                    return;
                 }
+
+               /* persistentConfig.findMessage("item-replacer")
+                        .ifPresent(message -> {
+                            if (item.getItemMeta().getDisplayName().equals(message.content())) {
+                                player.sendMessage("Item replaced!");
+                                player.getInventory().remove(item);
+                            }
+                        }); */
             });
         }
     }

@@ -19,7 +19,7 @@ import java.util.function.Function;
  * @author saydov
  */
 @Slf4j
-@RequiredArgsConstructor(onConstructor_ = @NotNull)
+@RequiredArgsConstructor
 public final class GuiceLoader extends AbstractModule {
 
     private final @NotNull ItemReplacerPlugin plugin;

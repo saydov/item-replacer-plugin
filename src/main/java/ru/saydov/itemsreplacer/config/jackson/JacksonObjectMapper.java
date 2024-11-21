@@ -14,7 +14,7 @@ import ru.saydov.itemsreplacer.utils.RegistrableDestroyable;
 /**
  * @author saydov
  */
-@RequiredArgsConstructor(onConstructor_ = @NotNull)
+@RequiredArgsConstructor
 public abstract class JacksonObjectMapper implements RegistrableDestroyable {
 
     @Accessors(fluent = true)

@@ -11,10 +11,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.saydov.itemsreplacer.config.jackson.JacksonObjectMapper;
 import ru.saydov.itemsreplacer.config.message.Message;
+import ru.saydov.itemsreplacer.config.replacer.ReplaceItemBuilder;
 
 import java.io.File;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * @author saydov
@@ -76,6 +78,16 @@ public abstract class AbstractConfig implements PersistentConfig {
         } catch (final JsonProcessingException e) {
             log.error("Failed to save messages", e);
         }
+    }
+
+    @Override
+    public @NotNull Set<ReplaceItemBuilder> replaceItems() {
+        return Set.of();
+    }
+
+    @Override
+    public boolean isIllegal(@NotNull String material) {
+        return false;
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.util.Optional;
  * @author saydov
  */
 @Getter
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED, onConstructor_ = @NotNull)
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class AbstractConfigurationFactory implements ConfigurationFactory {
 
     @Accessors(fluent = true)
