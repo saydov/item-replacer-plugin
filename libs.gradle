@@ -1,0 +1,29 @@
+def COMMANDFRAMEWORK_VERSION = "1.8.4"
+def JACKSON_VERSION = "2.13.4"
+
+ext {
+    libs = [
+            "bukkit"                : "org.spigotmc:spigot:1.20.1-R0.1-SNAPSHOT",
+            "plugin-annotations"    : "org.spigotmc:plugin-annotations:1.2.3-20230607.161913-6",
+            "guice"                 : "com.google.inject:guice:5.0.1",
+            "kyori"                 : "net.kyori:adventure-platform-bukkit:4.1.2",
+            "fastutil"              : "it.unimi.dsi:fastutil:8.5.6",
+            "slf4j"                 : "org.slf4j:slf4j-api:1.7.32",
+
+            "jetbrains"             : "org.jetbrains:annotations:23.0.0",
+            "lombok"                : "org.projectlombok:lombok:1.18.22"
+    ]
+
+    libs.commandframework = [
+            "core"                  : "cloud.commandframework:cloud-core:${COMMANDFRAMEWORK_VERSION}",
+            "bukkit"                : "cloud.commandframework:cloud-bukkit:${COMMANDFRAMEWORK_VERSION}",
+            "minecraft"             : "cloud.commandframework:cloud-minecraft-extras:${COMMANDFRAMEWORK_VERSION}"
+    ]
+
+    libs.jackson = [
+            "core"                  : "com.fasterxml.jackson.core:jackson-core:${JACKSON_VERSION}",
+            "annotations"           : "com.fasterxml.jackson.core:jackson-annotations:${JACKSON_VERSION}",
+            "dataformat-yaml"       : "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${JACKSON_VERSION}"
+    ]
+
+}

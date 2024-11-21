@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+
+    id ("com.github.johnrengelman.shadow") version "8.0.0"
+}
+
+group = 'ru.saydov.itemreplacer'
+version = '1.0-SNAPSHOT'
+
+apply from: new File("libs.gradle")
+
+repositories {
+    mavenCentral()
+
+    maven { url = "https://jitpack.io" }
+    maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
+    maven { url = "https://papermc.io/repo/repository/maven-public/" }
+}
+
+dependencies {
+    compileOnly libs.bukkit
+    compileOnly libs."plugin-annotations"
+
+    implementation libs.guice
+
+    implementation libs.fastutil
+
+    implementation libs.kyori
+    implementation libs.slf4j
+
+    implementation libs.commandframework.core
+    implementation libs.commandframework.bukkit
+    implementation libs.commandframework.minecraft
+
+    implementation libs.jackson.core
+    implementation libs.jackson.annotations
+    implementation libs.jackson."dataformat-yaml"
+
+    compileOnly libs.lombok
+    compileOnly libs.jetbrains
+
+    annotationProcessor libs.lombok
+    annotationProcessor libs.jetbrains
+    annotationProcessor libs."plugin-annotations"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks {
+    compileJava { options.encoding = 'UTF-8' }
+
+    shadowJar {
+        archiveFileName = 'ItemReplacer.jar'
+
+        ['cloud.commandframework'].each {
+            relocate(it, "${rootProject.group}.itemsreplacer.shaded.${it.tokenize('.').last()}")
+        }
+    }
+
+    build {
+        dependsOn shadowJar
+    }
+}
