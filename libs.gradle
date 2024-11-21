@@ -3,7 +3,7 @@ def JACKSON_VERSION = "2.13.4"
 
 ext {
     libs = [
-            "bukkit"                : "org.spigotmc:spigot:1.20.1-R0.1-SNAPSHOT",
+            "bukkit"                : "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT",
             "plugin-annotations"    : "org.spigotmc:plugin-annotations:1.2.3-20230607.161913-6",
             "guice"                 : "com.google.inject:guice:5.0.1",
             "kyori"                 : "net.kyori:adventure-platform-bukkit:4.1.2",
