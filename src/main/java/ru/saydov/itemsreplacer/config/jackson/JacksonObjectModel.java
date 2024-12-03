@@ -14,6 +14,8 @@ import java.util.Map;
  */
 @Getter
 @Accessors(fluent = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class JacksonObjectModel {
 
     private Sound sound;
