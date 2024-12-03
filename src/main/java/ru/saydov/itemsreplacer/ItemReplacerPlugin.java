@@ -32,7 +32,7 @@ public final class ItemReplacerPlugin extends JavaPlugin {
         configurationFactory.create("config.yaml");
         configurationFactory.register();
 
-        //registerCommands();
+        registerCommands();
         injector.getInstance(ItemReplacerListener.class).register();
         injector.getInstance(ItemReplacerTask.class).register();
     }
